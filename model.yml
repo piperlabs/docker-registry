@@ -1,0 +1,20 @@
+piperDir:
+  owner:  "{{ piperUser }}"
+  volume: PIPER_DIR
+  value: "/home/{{ piperUser }}/.piper"
+
+piperUser:
+  user:
+  value: piper
+daemonPort:
+  port: DOCKER_DAEMON_PORT
+  value: 4243
+registryPort:
+  port: DOCKER_REGISTRY_PORT
+  value: 5000
+startCommand:
+  start:
+  value: "docker start registry"
+stopCommand:
+  stop:
+  value: "docker stop registry"

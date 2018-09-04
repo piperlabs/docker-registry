@@ -1,0 +1,12 @@
+daemon:
+        host: localhost
+        port: 0
+hosts:
+        user:
+        port: 0
+key:
+  privatepath:
+  publicpath:
+internaldir: /root/.piper
+workspacedir: /root/workspace
+provider: docker

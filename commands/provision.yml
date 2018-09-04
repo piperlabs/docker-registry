@@ -1,0 +1,32 @@
+- type: copy
+  payload:
+    source: docker.conf
+    toPath: /etc/default/docker
+- type: shell
+  payload:
+    inline: service docker restart
+- type: copy
+  payload:
+    source: piper.yml
+    toDir: "/home/{{ piperUser }}"
+- type: permission
+  payload:
+    path: "/home/{{ piperUser }}/piper.yml"
+    owner: "{{ piperUser }}"
+- type: copy
+  payload:
+    source: piper.yml.container
+    toDir: "/home/{{ piperUser }}"
+- type: permission
+  payload:
+    path: "/home/{{ piperUser }}/piper.yml.container"
+    owner: "{{ piperUser }}"
+- type: shell
+  payload:
+    inline: "/home/{{ piperUser }}/piper create certificate"
+- type: shell
+  payload:
+    inline: "docker pull registry:2"
+- type: shell
+  payload:
+    inline: "docker create -p {{ registryPort }}:{{ registryPort }} -v /var/lib/registry:/var/lib/registry -v {{ piperDir }}/.registry:/certs -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key --name registry registry:2"

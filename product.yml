@@ -1,0 +1,4 @@
+name: docker-registry
+require:
+  - name: ubuntu
+    version: 16.04
