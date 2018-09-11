@@ -1,7 +1,7 @@
 piperDir:
   owner:  "{{ piperUser }}"
   volume: PIPER_DIR
-  value: "/home/{{ piperUser }}/.piper"
+  value: "/home/{{ piperUser }}/.piperHost"
 
 piperUser:
   user:
