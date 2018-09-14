@@ -1,7 +1,10 @@
 - type: copy
   payload:
-    source: docker.conf
-    toPath: /etc/default/docker
+    source: docker.service
+    toDir: /lib/systemd/system
+- type: shell
+  payload:
+    inline: systemctl daemon-reload
 - type: shell
   payload:
     inline: service docker restart

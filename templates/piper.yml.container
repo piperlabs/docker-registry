@@ -1,12 +1,4 @@
-daemon:
-        host: localhost
-        port: 0
-hosts:
-        user:
-        port: 0
-key:
-  privatepath:
-  publicpath:
+defaulthost:
+  provider: none
+  container: docker
 internaldir: /root/.piper
-workspacedir: /root/workspace
-provider: docker
