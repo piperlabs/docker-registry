@@ -10,14 +10,6 @@
     inline: service docker restart
 - type: copy
   payload:
-    source: piper.yml
-    toDir: "/home/{{ piperUser }}"
-- type: permission
-  payload:
-    path: "/home/{{ piperUser }}/piper.yml"
-    owner: "{{ piperUser }}"
-- type: copy
-  payload:
     source: piper.yml.container
     toDir: "/home/{{ piperUser }}"
 - type: permission
