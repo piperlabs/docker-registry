@@ -18,7 +18,7 @@
     owner: "{{ piperUser }}"
 - type: shell
   payload:
-    inline: "/home/{{ piperUser }}/piper create certificate"
+    inline: "piper create certificate"
 - type: shell
   payload:
     inline: "docker pull registry:2"
